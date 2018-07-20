@@ -9,6 +9,7 @@
       <th>Gender</th>
       <th>Role</th>
       <th>Enable / Disable</th>
+      <th>Manager</th>
     </tr>
   </thead>
   <tbody>
@@ -20,9 +21,20 @@
           <td><%= user.gender %></td>
           <td><%= user.role %></td>
           <% if user.enable? %>
-            <td><%= link_to "Disable", user_status_admin_admin_path(user.id), class: "btn btn-danger" %></td>
+            <% if user.admin? %>
+              <td></td>
+            <% else %>
+              <td><%= link_to "Disable", user_status_admin_admin_path(user.id), class: "btn btn-danger" %></td>
+            <% end %>
           <% else %>
             <td><%= link_to "Enable", user_status_admin_admin_path(user.id), class: "btn btn-info" %></td>
+          <% end %>
+          <% if user.admin? %>
+            <td></td>
+          <% elsif user.manager? %> 
+            <td><%= link_to "Remove as Manager", user_status_admin_admin_path(user.id), class: "btn btn-danger" %></td>
+          <% else %>
+            <td><%= link_to "Assign as Manager", user_status_admin_admin_path(user.id), class: "btn btn-success" %></td>
           <% end %>
       </tr>
     <% end %>
