@@ -2,7 +2,7 @@
   <nav class="navbar navbar-inverse">
     <ul class="nav navbar-nav navbar-left">
       <li><%= link_to "PMS", root_path %></li>
-      <% if user_signed_in? && current_user.role == "admin" %>
+      <% if user_signed_in? && current_user.admin? %>
         <li>
           <%= link_to admin_root_path do %>
             <span class="glyphicon glyphicon-home"></span>   Home
@@ -33,7 +33,6 @@
               <span class="glyphicon glyphicon-edit"></span>   Edit Profile
             <% end %>
           </li>
-
         <% else %>
           <li>
             <%= link_to new_user_session_path do %>

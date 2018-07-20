@@ -1,5 +1,5 @@
 <div class="container">
-  <h2 align="center">Log in</h2>
+  <h2 class="title-header">Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field form-group">
@@ -18,7 +18,6 @@
           <%= f.check_box :remember_me , class: "label-space"%>
           <%= f.label :remember_me %>
         </div>
-        
       </div>
     <% end -%>
 

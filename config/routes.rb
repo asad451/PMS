@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   root to: "home#index"
   
   namespace :admin do
+    resources :admins do
+      member do
+        get 'user_status'
+      end
+    end    
     root to: 'admins#index'
-    resources :users
   end
-  
 end
