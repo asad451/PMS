@@ -1,42 +1,79 @@
 <h1 class="title-header">Admin's Workspace</h1>
-<br>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>Username</th>
-      <th>E-mail</th>
-      <th>Contact#</th>
-      <th>Gender</th>
-      <th>Role</th>
-      <th>Enable / Disable</th>
-      <th>Manager</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-          <td><%= user.username %></td>
-          <td><%= user.email %></td>
-          <td><%= user.contact %></td>
-          <td><%= user.gender %></td>
-          <td><%= user.role %></td>
-          <% if user.enable? %>
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+    <li><a data-toggle="tab" href="#user">Users</a></li>
+    <li><a data-toggle="tab" href="#client">Clients</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <h3 class="title-header">HOME</h3><br>
+    <h4>Welcome Admin !</h4>
+  </div>
+  <div id="user" class="tab-pane fade">
+    <h3 class="title-header">All Users</h3><br>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>E-mail</th>
+          <th>Contact#</th>
+          <th>Gender</th>
+          <th>Role</th>
+          <th>Enable / Disable</th>
+          <th>Manager</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td><%= user.contact %></td>
+            <td><%= user.gender %></td>
+            <td><%= user.role %></td>
+            <% if user.enable? %>
+              <% if user.admin? %>
+                <td></td>
+              <% else %>
+                <td><%= link_to "Disable", user_status_admin_admin_path(user.id), class: "btn btn-danger" %></td>
+              <% end %>
+            <% else %>
+              <td><%= link_to "Enable", user_status_admin_admin_path(user.id), class: "btn btn-info" %></td>
+            <% end %>
             <% if user.admin? %>
               <td></td>
+            <% elsif user.manager? %> 
+              <td><%= link_to "Remove as Manager", user_status_admin_admin_path(user.id), class: "btn btn-danger" %></td>
             <% else %>
-              <td><%= link_to "Disable", user_status_admin_admin_path(user.id), class: "btn btn-danger" %></td>
+              <td><%= link_to "Assign as Manager", user_status_admin_admin_path(user.id), class: "btn btn-success" %></td>
             <% end %>
-          <% else %>
-            <td><%= link_to "Enable", user_status_admin_admin_path(user.id), class: "btn btn-info" %></td>
-          <% end %>
-          <% if user.admin? %>
-            <td></td>
-          <% elsif user.manager? %> 
-            <td><%= link_to "Remove as Manager", user_status_admin_admin_path(user.id), class: "btn btn-danger" %></td>
-          <% else %>
-            <td><%= link_to "Assign as Manager", user_status_admin_admin_path(user.id), class: "btn btn-success" %></td>
-          <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div id="client" class="tab-pane fade">
+    <h3 class="title-header">Our Clients</h3><br>
+      <%= link_to new_client_path, class: "btn btn-primary add-client-btn" do %>
+        <span class="glyphicon glyphicon-user"></span>   Add Client
+      <% end %>
+      <br><br><br>
+      <div class="row">
+        <% @clients.each do |client| %>
+          <div class="col-sm-3">
+            <div class="thumbnail">
+              <div class="caption">
+                <h3><%= client.name %></h3>
+                <span class="glyphicon glyphicon-user client-icon"></span>
+                <h4><%= client.country %></h4>
+                <h5><%= client.email %></h5>
+                <p><%= link_to "Edit", edit_client_path(client.id), class: "btn btn-primary" %> <%= link_to "Delete", client_path(client.id), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure ?"} %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+</div>

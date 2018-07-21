@@ -2,6 +2,7 @@ class Admin::AdminsController < Admin::BaseController
 
   def index
     @users = User.all
+    @clients = Client.all
   end
 
   def user_status
@@ -24,5 +25,4 @@ class Admin::AdminsController < Admin::BaseController
       redirect_to admin_root_path and return
     end  
   end
-
 end
