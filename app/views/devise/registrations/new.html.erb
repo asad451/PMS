@@ -4,22 +4,22 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="field form-group">
+    <div class="form-group">
       <%= f.label :username , class: "label-space" %><br />
       <%= f.text_field :username, class: "form-control", autofocus: true %>
     </div>
     
-    <div class="field form-group">
+    <div class="form-group">
       <%= f.label :contact, class: "label-space" %><br />
       <%= f.text_field :contact, class: "form-control", autofocus: true %>
     </div>    
 
-    <div class="field form-group">
+    <div class="form-group">
       <%= f.label :email, class: "label-space" %><br />
       <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
     </div>
 
-    <div class="field form-group">
+    <div class="form-group">
       <%= f.label :password, class: "label-space" %>
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -27,12 +27,12 @@
       <%= f.password_field :password, class: "form-control", autocomplete: "off" %>
     </div>
 
-    <div class="field form-group">
+    <div class="form-group">
       <%= f.label :password_confirmation, class: "label-space" %><br />
       <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "off" %>
     </div>
     
-    <div class="field form-group">
+    <div class="form-group">
       <%= f.label :gender, class: "label-space" %><br />
       <%= f.select(:gender, options_for_select([['Select','S'],['Male','M'],['Female','F']]), {}, {class: "form-control"}) %>
     </div>

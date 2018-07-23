@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :admins do
       member do
-        get 'user_status'
+        get 'change_status'
+        get 'change_role'
       end
     end    
     root to: 'admins#index'

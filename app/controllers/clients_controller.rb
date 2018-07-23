@@ -1,21 +1,14 @@
 class ClientsController < ApplicationController
 
-  before_action :find_client, only: [:show, :edit, :update, :destroy]
+  before_action :find_client, only: [:edit, :update, :destroy]
+  before_action :authenticate_role, only: [:new, :edit]
 
   def index
     @clients = Client.all
   end
 
   def new
-    if user_signed_in?
-      if current_user.admin? || current_user.manager?
-        @client = Client.new
-      else
-        redirect_to root_path, alert: 'You are not authorize to view this page'
-      end
-    else
-      redirect_to new_user_session_path, alert: 'You need to login first'
-    end
+    @client = Client.new
   end
 
   def create
@@ -28,15 +21,7 @@ class ClientsController < ApplicationController
   end
 
   def edit
-    if user_signed_in?
-      if current_user.admin? || current_user.manager?
-        render 'edit'
-      else
-        redirect_to root_path, alert: 'You are not authorize to view this page'
-      end
-    else
-      redirect_to new_user_session_path, alert: 'You need to login first'
-    end
+    render 'edit'
   end
 
   def update
@@ -45,10 +30,6 @@ class ClientsController < ApplicationController
     else
       render 'edit'
     end
-  end
-
-  def show
-    redirect_to admin_root_path
   end
 
   def destroy
@@ -64,6 +45,12 @@ class ClientsController < ApplicationController
 
   def client_params
     params.require(:client).permit(:name, :email, :country)
+  end
+
+  def authenticate_role
+    unless current_user.admin? || current_user.manager?
+      return (redirect_to root_path, alert: 'You are not authorize to view this page')
+    end
   end
 
 end
