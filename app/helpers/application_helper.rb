@@ -6,4 +6,24 @@ module ApplicationHelper
     end
   end
 
+  def render_home_button
+    if user_signed_in? && current_user.admin?
+      content_tag :li do
+        link_to "Home", admin_root_path
+      end
+    else
+      content_tag :li do
+        link_to "Home", root_path
+      end
+    end
+  end
+
+  def render_session_button
+    if user_signed_in?
+      render 'shared/logged_in'
+    else
+      render 'shared/logged_out'
+    end
+  end
+
 end

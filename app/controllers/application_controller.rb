@@ -5,16 +5,18 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   private
+
     def configure_permitted_parameters
         devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :contact, :email, :password, :gender) }
         devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :contact, :email, :password, :current_password, :gender, :avatar) }
     end
-    
+
     def after_sign_in_path_for(resource)
-        if resource.admin?
-          admin_root_path
-        else
-          root_path
+      if resource.admin?
+        admin_root_path
+      else
+        root_path
       end
     end
+
 end

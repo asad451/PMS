@@ -2,6 +2,7 @@
   <h2 class="title-header">Log in</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
     <div class="form-group">
       <%= f.label :email, class: "label-space" %><br />
       <%= f.email_field :email, class: "form-control", autofocus: true, autocomplete: "email" %>
@@ -21,9 +22,10 @@
       </div>
     <% end -%>
 
-    <div class="actions" align="center">
+    <div class="actions title-header">
       <%= f.submit "Log in", class: "btn btn-primary btn-lg" %>
     </div>
+
   <% end %>
  <!-- <%= render "devise/shared/links" %> -->
 </div>
