@@ -5,7 +5,7 @@
     <span class="glyphicon glyphicon-file"></span>Create New Project
   <% end %>
 </div>
-
+<%= paginate @projects %>
 <div class="row">
   <% @projects.each do |project| %>
     <div class="col-sm-3">
@@ -21,3 +21,4 @@
     </div>
   <% end %>
 </div>
+<%= paginate @projects %>

@@ -3,9 +3,9 @@ class Admin::AdminsController < Admin::BaseController
   before_action :find_user, only: [:change_status, :change_role]
 
   def index
-    @users = User.all
-    @clients = Client.all
-    @projects = Project.all
+    @users = User.order(:username).page params[:page]
+    @clients = Client.order(:name).page params[:page]
+    @projects = Project.order(:title).page params[:page]
   end
 
   def change_status

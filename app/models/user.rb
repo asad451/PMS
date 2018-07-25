@@ -7,6 +7,8 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
 
+  paginates_per 5
+
   def active_for_authentication?
     super && enable?
   end

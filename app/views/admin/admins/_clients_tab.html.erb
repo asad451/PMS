@@ -5,7 +5,7 @@
     <span class="glyphicon glyphicon-user"></span>Add Client
   <% end %>
 </div>
-
+<%= paginate @clients %>
 <div class="row">
   <% @clients.each do |client| %>
     <div class="col-sm-3">
@@ -21,3 +21,4 @@
     </div>
   <% end %>
 </div>
+<%= paginate @clients %>
