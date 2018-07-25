@@ -1,0 +1,8 @@
+<div class="container">
+  <h1 class="title-header"><strong>Project Title: </strong> <%= @project.title %></h3>
+  <h3><strong>Client: </strong> <%= @project.user_name %></h4>
+  <h3><strong>Estimated Time: </strong> <%= @project.time %> Days</h3>
+  <h3><strong>Estimated Price: </strong> <%= @project.price %> USD</h3>
+  <p><strong>Description: </strong><%= @project.description %></p>
+  <%= link_to "Back", admin_root_path, class: "btn btn-info" %>
+</div>

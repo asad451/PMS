@@ -7,7 +7,7 @@ module ClientsHelper
       end
     else
       content_tag :div, class: "action" do
-        button_tag("update Client", type: 'submit', class: 'btn btn-primary')
+        button_tag("Update Client", type: 'submit', class: 'btn btn-primary')
       end
     end
   end

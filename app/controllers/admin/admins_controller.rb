@@ -5,6 +5,7 @@ class Admin::AdminsController < Admin::BaseController
   def index
     @users = User.all
     @clients = Client.all
+    @projects = Project.all
   end
 
   def change_status
