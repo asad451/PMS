@@ -1,16 +1,14 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse">
 
-    <ul class="nav navbar-nav navbar-left">
-      <li><%= link_to "PMS", root_path %></li>
-      <%= render_home_button %>
+  <ul class="nav navbar-nav navbar-left">
+    <li><%= link_to "PMS", root_path %></li>
+    <%= render_home_button %>
+  </ul>
+
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <%= render_session_button %>
     </ul>
+  </div>
 
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">
-        <%= render_session_button %>
-      </ul>
-    </div>
-
-  </nav>
-</div>
+</nav>

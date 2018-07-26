@@ -11,8 +11,11 @@
   <%= render "shared/header" %>
   <div class="container-fluid">
     <%= show_profile_picture %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container">
+      <% flash.each do |key, value| %>
+        <div class="alert alert-<%= key == 'notice' ? 'success' : 'danger' %>"><%= value %></div>
+      <% end %>
+    </div>
     <%= yield %>
   </div>
 </body>

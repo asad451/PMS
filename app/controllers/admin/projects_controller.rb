@@ -1,15 +1,13 @@
-class ProjectsController < ApplicationController
+class Admin::ProjectsController < Admin::BaseController
 
+  before_action :get_clients, only: [:new, :edit]
   before_action :find_project, only: [:edit, :update, :show, :destroy]
-  before_action :authenticate_role, only: [:new, :edit]
 
   def index
-    @projects = Project.all
-    @clients = Client.pluck(:name, :id)
+    @projects = Project.order(:title).page params[:page]
   end
 
   def new
-    @clients = Client.pluck(:name, :id)
     @project = Project.new
   end
 
@@ -17,21 +15,22 @@ class ProjectsController < ApplicationController
     @clients = Client.all
     @project = Project.new(project_params)
     if @project.save
-      redirect_to admin_root_path
+      redirect_to admin_projects_path, notice: "Project created successfully!"
     else
+      get_clients
       render 'new'
     end
   end
 
   def edit
-    @clients = Client.pluck(:name, :id)
     render 'edit'
   end
 
   def update
     if @project.update(project_params)
-      redirect_to admin_root_path
+      redirect_to admin_projects_path, notice: "Project updated successfully!"
     else
+      get_clients
       render 'edit'
     end
   end
@@ -41,7 +40,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
-    redirect_to admin_root_path
+    redirect_to admin_projects_path, notice: "Project deleted successfully!"
   end
 
   private
@@ -54,10 +53,8 @@ class ProjectsController < ApplicationController
       params.require(:project).permit(:client_id, :title, :description, :price, :time)
     end
 
-    def authenticate_role
-      unless current_user.admin? || current_user.manager?
-        return (redirect_to root_path, alert: 'You are not authorize to view this page')
-      end
+    def get_clients
+      @clients = Client.pluck(:name, :id)
     end
 
 end

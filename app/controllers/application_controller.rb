@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
 
   private
 
@@ -17,6 +18,11 @@ class ApplicationController < ActionController::Base
       else
         root_path
       end
+    end
+
+    def record_not_found
+      alert = "Record Not Found"
+      redirect_to root_path
     end
 
 end

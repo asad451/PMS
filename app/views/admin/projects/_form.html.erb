@@ -1,4 +1,6 @@
-<%= form_for @project do |f| %>
+<%= form_for [:admin, @project] do |f| %>
+
+  <%= render 'shared/error_msg', object: @project %>
 
   <div class="form-group">
     <%= f.label :client_id, "Select Client", class: "label-space" %><br />
@@ -25,5 +27,8 @@
     <%= f.text_field :price, class: "form-control" %>
   </div>
 
-  <%= change_project_submit_button(@project) %>
+  <div class="action">
+      <%= f.submit class: 'btn btn-primary action' %>
+  </div>
+
 <% end %>

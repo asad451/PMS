@@ -1,7 +1,7 @@
 <h3 class="title-header">Projects</h3><br>
 
 <div class='row margin-btm-5'>
-  <%= link_to new_project_path, class: "btn btn-primary add-client-btn" do %>
+  <%= link_to new_admin_project_path, class: "btn btn-primary add-client-btn" do %>
     <span class="glyphicon glyphicon-file"></span>Create New Project
   <% end %>
 </div>
@@ -15,7 +15,7 @@
           <a href="/admin/projects/<%= project.id %>"><span class="glyphicon glyphicon-user client-icon"></span></a>
           <h4><strong>Client: </strong> <%= project.user_name %></h4>
           <h5><strong>Description: </strong><%= project.description.truncate_words(4) %></h5>
-          <p><%= link_to "Edit", edit_project_path(project.id), class: "btn btn-primary" %> <%= link_to "Delete", project, class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure ?"} %></p>
+          <p><%= link_to "Edit", edit_admin_project_path(project.id), class: "btn btn-primary" %> <%= link_to "Delete", [:admin, project], class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure ?" } %></p>
         </div>
       </div>
     </div>

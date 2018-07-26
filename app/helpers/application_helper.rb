@@ -8,9 +8,7 @@ module ApplicationHelper
 
   def render_home_button
     if user_signed_in? && current_user.admin?
-      content_tag :li do
-        link_to "Home", admin_root_path
-      end
+      render 'admin/dashboard/admin_navbar'
     else
       content_tag :li do
         link_to "Home", root_path

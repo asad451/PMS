@@ -1,4 +1,6 @@
-<%= form_for @client do |f| %>
+<%= form_for [:admin, @client] do |f| %>
+
+  <%= render 'shared/error_msg', object: @client %>
 
   <div class="form-group">
     <%= f.label :name , class: "label-space" %>
@@ -15,5 +17,8 @@
     <%= f.text_field :country, class: "form-control", autofocus: true %>
   </div>
 
-  <%= change_client_submit_button(@client) %>
+  <div class="action">
+      <%= f.submit class: 'btn btn-primary action' %>
+  </div>
+
 <% end %>

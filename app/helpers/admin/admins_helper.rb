@@ -4,9 +4,9 @@ module Admin::AdminsHelper
     return if user.admin?
 
     if user.enable?
-      link_to "Disable", change_status_admin_admin_path(user.id), class: "btn btn-danger"
+      link_to "Disable", change_status_admin_user_path(user.id), class: "btn btn-danger"
     else
-      link_to "Enable", change_status_admin_admin_path(user.id), class: "btn btn-info"
+      link_to "Enable", change_status_admin_user_path(user.id), class: "btn btn-info"
     end
   end
 
@@ -14,9 +14,9 @@ module Admin::AdminsHelper
     return if user.admin?
 
     if user.manager?
-      link_to "Remove as Manager", change_role_admin_admin_path(user.id), class: "btn btn-danger"
+      link_to "Remove as Manager", change_role_admin_user_path(user.id), class: "btn btn-danger"
     else
-      link_to "Assign as Manager", change_role_admin_admin_path(user.id), class: "btn btn-success"
+      link_to "Assign as Manager", change_role_admin_user_path(user.id), class: "btn btn-success"
     end
   end
 

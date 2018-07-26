@@ -6,5 +6,4 @@ class Project < ApplicationRecord
   def user_name
     self.client.name
   end
-
 end
