@@ -1,8 +1,45 @@
-<div class="container">
-  <h1 class="title-header"><strong>Project Title: </strong> <%= @project.title %></h3>
-  <h3><strong>Client: </strong> <%= @project.user_name %></h4>
-  <h3><strong>Estimated Time: </strong> <%= @project.time %> Days</h3>
-  <h3><strong>Estimated Price: </strong> <%= @project.price %> USD</h3>
-  <p><strong>Description: </strong><%= @project.description %></p>
-  <%= link_to "Back", admin_projects_path, class: "btn btn-info" %>
+<h1 class="title-header"><strong>Project Title: </strong> <%= @project.title %></h3>
+<div id="wrapper">
+  <div id="project-section">
+    <h3><strong>Client: </strong> <%= @project.user_name %></h4>
+    <h3><strong>Estimated Time: </strong> <%= @project.time %> Days</h3>
+    <h3><strong>Estimated Price: </strong>$ <%= @project.price %> </h3>
+    <p><strong>Description: </strong><%= @project.description %></p>
+  </div>
+
+  <div id="payment-section">
+    <%= link_to "Add Payment", new_admin_project_payment_path(@project), class: "btn btn-primary add-payment-button" %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th class="col-xs-3">Date</th>
+          <th class="col-xs-3">Entered By</th>
+          <th class="col-xs-3">Amount ($)</th>
+          <th class="col-xs-1">Edit</th>
+          <th class="col-xs-1">Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @project.payments.each do |payment| %>
+          <tr>
+            <th><%= payment.created_at.to_date %></td>
+            <td><%= current_user.role %></td>
+            <td><%= payment.amount%></td>
+            <td>
+              <%= link_to edit_admin_payment_path(payment) do %>
+                <span class="glyphicon glyphicon-edit"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to admin_project_payment_path(@project, payment), method: :delete, data: { confirm: "Are you sure ?" } do %>
+                <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
 </div>

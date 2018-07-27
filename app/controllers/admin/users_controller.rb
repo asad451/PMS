@@ -8,18 +8,18 @@ class Admin::UsersController < Admin::BaseController
 
   def change_status
     if @user.enable?
-      @user.disable!, notice: "User is Disabled" 
+      @user.disable!
     else
-      @user.enable!, notice: "User is Enabled"
+      @user.enable!
     end
     return(redirect_to admin_users_path)
   end
 
   def change_role
     if @user.user?
-      @user.manager!, notice: "User has been assigned as Manager"
+      @user.manager!
     else
-      @user.user!, notice: "User has been removed as Manager"
+      @user.user!
     end
     return(redirect_to admin_users_path)
   end

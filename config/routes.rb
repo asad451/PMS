@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :clients
-    resources :projects
+    resources :projects do
+      resources :payments, only: [:new, :create, :destroy]
+    end
+    resources :payments, only: [:edit, :update]
     resources :users do
       member do
         get 'change_status'

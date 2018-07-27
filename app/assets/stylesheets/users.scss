@@ -52,3 +52,20 @@
 .error-body {
   margine-left: 40%;
 }
+
+#wrapper {
+  padding: 20px;
+  display: flex;
+  width: 100%;
+}
+
+#project-section {
+  width: 45%;
+  float: left;
+}
+
+#payment-section {
+  width: 40%;
+  margin-left: 20%;
+  margin-top: 4%;
+}

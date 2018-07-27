@@ -1,6 +1,7 @@
 class Project < ApplicationRecord
   validates :title, :description, :price, :time, presence: true
   belongs_to :client
+  has_many :payments
   paginates_per 5
 
   def user_name

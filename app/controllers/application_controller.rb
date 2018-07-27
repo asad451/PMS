@@ -21,8 +21,7 @@ class ApplicationController < ActionController::Base
     end
 
     def record_not_found
-      alert = "Record Not Found"
-      redirect_to root_path
+      redirect_to root_path, alert: "Record Not Found"
     end
 
 end
