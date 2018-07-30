@@ -4,6 +4,11 @@ class HomeController < ApplicationController
 
   def index
     @user = User.all
+    @projects = Project.all
+  end
+
+  def show
+    @project = Project.find(params[:id])
   end
 
 end

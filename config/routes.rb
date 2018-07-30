@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
+  get 'project/:id', to: 'home#show', as: :project
+
   namespace :admin do
     resources :clients
     resources :projects do

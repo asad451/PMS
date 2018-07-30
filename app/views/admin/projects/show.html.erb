@@ -23,7 +23,7 @@
       <tbody>
         <% @project.payments.each do |payment| %>
           <tr>
-            <th><%= payment.created_at.to_date %></td>
+            <td><%= payment.created_at.to_date %></td>
             <td><%= current_user.role %></td>
             <td><%= payment.amount%></td>
             <td>
@@ -41,5 +41,6 @@
       </tbody>
     </table>
   </div>
-
 </div>
+
+<%= render 'comments/comment_section' %>
