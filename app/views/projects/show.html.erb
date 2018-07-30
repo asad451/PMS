@@ -7,3 +7,5 @@
     <p><strong>Description: </strong><%= @project.description %></p>
   </div>
 </div>
+<%= render partial: "comments/comments", locals: { commentable: @project } %>
+<%= render partial: "comments/form", locals: { commentable: @project } %>

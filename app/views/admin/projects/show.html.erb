@@ -42,5 +42,10 @@
     </table>
   </div>
 </div>
-
-<%= render 'comments/comment_section' %>
+<h2>Comments</h2>
+<% @comments.each do |comment| %>
+  <div class="well">
+    <p><%= comment.body %></p>
+    <p>-<%= comment.user.username %></p>
+  </div>
+<% end %>

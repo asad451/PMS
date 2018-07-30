@@ -36,6 +36,7 @@ class Admin::ProjectsController < Admin::BaseController
   end
 
   def show
+    @comments = @project.comments.all
   end
 
   def destroy

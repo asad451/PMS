@@ -2,6 +2,14 @@
   <h4 class="username"><%= current_user.username %></h4>
 </li>
 
+<% unless current_user.admin? %>
+  <li>
+    <%= link_to projects_path do %>
+      <span class="glyphicon glyphicon-file"></span>Projects
+    <% end %>
+  </li>
+<% end %>
+
 <li>
   <%= link_to destroy_user_session_path, method: :delete do %>
     <span class="glyphicon glyphicon-log-out"></span>Log Out
