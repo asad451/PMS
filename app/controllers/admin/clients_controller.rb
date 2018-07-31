@@ -1,6 +1,6 @@
 class Admin::ClientsController < Admin::BaseController
 
-  before_action :find_client, only: [:edit, :update, :destroy]
+  before_action :find_client, only: [:edit, :update, :destroy, :show]
 
   def index
     @clients = Client.order(:name).page params[:page]
@@ -17,6 +17,9 @@ class Admin::ClientsController < Admin::BaseController
     else
       render 'new'
     end
+  end
+
+  def show
   end
 
   def edit

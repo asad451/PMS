@@ -1,12 +1,6 @@
 <h2>Comments</h2>
 <% commentable.comments.each do |comment| %>
-  <div class="well">
-    <p><%= comment.body %></p>
-    <p>-<%= comment.user.username %></p>
-    <% if comment.user == current_user %>
-      <%= link_to [commentable, comment], method: :delete, data: { confirm: "Are you sure ?" } do %>
-        <span class="glyphicon glyphicon-remove"></span>
-      <% end %>
-    <% end %>
-  </div>
+  <%= render 'comments/com', comment: comment, commentable: commentable %>
 <% end %>
+
+<div id="edit-comment-modal-window" class="modal fade in" role="dialog" aria-hidden="true", tabindex="-1"></div>

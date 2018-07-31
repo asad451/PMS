@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+
   devise_for :users
   root to: "home#index"
 
+  resources :clients
   resources :projects do
-    resources :comments, only: [:create, :destroy]
+    resources :comments, only: [:create, :destroy, :edit, :update]
   end
 
   namespace :admin do

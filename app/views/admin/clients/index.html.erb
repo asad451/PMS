@@ -12,7 +12,7 @@
       <div class="thumbnail">
         <div class="caption">
           <h3><%= client.name %></h3>
-          <span class="glyphicon glyphicon-user client-icon"></span>
+          <a href="/admin/clients/<%= client.id %>"><span class="glyphicon glyphicon-user client-icon"></span></a>
           <h4><%= client.country %></h4>
           <h5><%= client.email %></h5>
           <p><%= link_to "Edit", edit_admin_client_path(client.id), class: "btn btn-primary" %> <%= link_to "Delete", [:admin, client], class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure ?" } %></p>
