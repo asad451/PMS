@@ -3,6 +3,9 @@ class Project < ApplicationRecord
   belongs_to :client
   has_many :payments
   has_many :comments, as: :commentable
+  has_many :assignments
+  has_many :users, through: :assignments
+
   paginates_per 5
 
   def user_name
