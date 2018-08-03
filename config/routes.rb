@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :clients
+  resources :time_logs
   resources :projects do
     resources :comments, only: [:create, :destroy, :edit, :update]
   end

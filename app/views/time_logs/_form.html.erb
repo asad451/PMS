@@ -1,0 +1,24 @@
+<%= form_for @timelog do |f| %>
+
+  <%= render 'shared/error_msg', object: @timelog %>
+
+  <div class="form-group">
+    <%= f.label :project_id, "Select Project", class: "label-space" %>
+    <%= f.select :project_id, @projects, { include_blank: 'Select Project' }, { class: "form-control" , required: true } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :start_time, class: "label-space" %>
+    <%= f.datetime_select :start_time, order: [:day, :month, :year], class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :end_time, class: "label-space" %>
+    <%= f.datetime_select :end_time, order: [:day, :month, :year], class: "form-control" %>
+  </div>
+
+  <div class="action">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+
+<% end %>
