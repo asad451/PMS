@@ -5,6 +5,12 @@
     <h3><strong>Estimated Time: </strong> <%= @project.time %> Days</h3>
     <h3><strong>Estimated Price: </strong>$ <%= @project.price %> </h3>
     <p><strong>Description: </strong><%= @project.description %></p>
+    <p><strong>Attachments: </strong></p>
+      <% @project.attachments.each do |f| %>
+        <ol>
+          <li><%= f.file_file_name %></li>
+        </ol>
+      <% end %>
   </div>
 
   <div id="payment-section">

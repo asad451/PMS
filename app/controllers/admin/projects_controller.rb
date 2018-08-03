@@ -9,6 +9,7 @@ class Admin::ProjectsController < Admin::BaseController
 
   def new
     @project = Project.new
+    @project.attachments.build
   end
 
   def create
@@ -51,7 +52,7 @@ class Admin::ProjectsController < Admin::BaseController
     end
 
     def project_params
-      params.require(:project).permit(:client_id, :title, :description, :price, :time)
+      params.require(:project).permit(:client_id, :title, :description, :price, :time, attachments_attributes: [:id, :file, :_destroy])
     end
 
     def get_clients
