@@ -1,1 +1,9 @@
 <h1 class="title-header">Project Management System</h1>
+<% if current_user %>
+  <h1 class="title-header">My Profile</h1>
+  <%= homepage_profile_picture %></h3>
+  <h3><strong>Name: </strong><%= current_user.username %></h3>
+  <h3><strong>E-mail: </strong><%= current_user.email %></h3>
+  <h3><strong>Role: </strong><%= current_user.role %></h3>
+  <h3><strong>Contact: </strong><%= current_user.contact %></h3>
+<% end %>

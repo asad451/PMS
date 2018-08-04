@@ -6,6 +6,12 @@ module ApplicationHelper
     end
   end
 
+  def homepage_profile_picture
+    if user_signed_in? && current_user.avatar?
+      image_tag current_user.avatar.url(:thumb), class: "home-profile-pic"
+    end
+  end
+
   def render_home_button
     if user_signed_in? && current_user.admin?
       render 'admin/dashboard/admin_navbar'
