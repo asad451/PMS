@@ -54,5 +54,8 @@
   <div class="well">
     <p><%= comment.body %></p>
     <p id="comment-user">-<%= comment.user.username %></p>
+    <%= link_to admin_project_comment_path(@project, comment), method: :delete, data: { confirm: "Are you sure ?" } do %>
+      <span class="glyphicon glyphicon-remove"></span>
+    <% end %>
   </div>
 <% end %>

@@ -37,7 +37,7 @@ class Admin::ProjectsController < Admin::BaseController
   end
 
   def show
-    @comments = @project.comments.all
+    @comments = @project.comments.includes(:user).order("created_at desc").limit(5)
   end
 
   def destroy

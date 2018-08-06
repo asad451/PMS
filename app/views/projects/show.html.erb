@@ -8,5 +8,5 @@
     <h4><strong>Total Hours Spent By You: </strong><%= @total %> hours</h4>
   </div>
 </div>
-<%= render partial: "comments/comments", locals: { commentable: @project } %>
+<%= render partial: "comments/comments", locals: { commentable: @project, comments: @comments } %>
 <%= render partial: "comments/form", locals: { commentable: @project } %>
