@@ -5,6 +5,7 @@
     <h3><strong>Estimated Time: </strong> <%= @project.time %> Days</h3>
     <h3><strong>Estimated Price: </strong>$ <%= @project.price %> </h3>
     <p><strong>Description: </strong><%= @project.description %></p>
+    <h4><strong>Total Hours Spent By You: </strong><%= @total %> hours</h4>
   </div>
 </div>
 <%= render partial: "comments/comments", locals: { commentable: @project } %>

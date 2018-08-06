@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @total = TimeLog.where(user: current_user, project: @project).map{ |t| (t.end_time - t.start_time) / 3600 }.sum
   end
 
   private
