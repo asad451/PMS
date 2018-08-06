@@ -14,10 +14,6 @@ class Project < ApplicationRecord
 
   paginates_per 5
 
-  def self.search(search)
-    where("title LIKE ?", "%#{search}%")
-  end
-
   def user_name
     self.client.name
   end

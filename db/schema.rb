@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180803063116) do
+ActiveRecord::Schema.define(version: 20180806131545) do
 
   create_table "assignments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "role", null: false
@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(version: 20180803063116) do
     t.string "time", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "delta", default: true, null: false
     t.index ["client_id"], name: "index_projects_on_client_id"
   end
 

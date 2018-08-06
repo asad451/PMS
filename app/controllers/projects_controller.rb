@@ -3,7 +3,8 @@ class ProjectsController < ApplicationController
   before_action :find_project, only: [:show]
 
   def index
-    @results = Project.search(params[:search]).page params[:page]
+    @projects = Project.order(:title).page params[:page]
+    @results = Project.search(params[:search])
   end
 
   def show
