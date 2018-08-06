@@ -35,12 +35,8 @@ class Admin::ClientsController < Admin::BaseController
   end
 
   def destroy
-    if @client.projects.any?
-      redirect_to admin_clients_path, alert: "Cannot delete Client! First You have to delete its projects"
-    else
-      @client.destroy
-      redirect_to admin_clients_path, notice: "Client deleted successfully!"
-    end
+    @client.destroy
+    redirect_to admin_clients_path, notice: "Client deleted successfully!"
   end
 
   private

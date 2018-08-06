@@ -1,9 +1,9 @@
 class Project < ApplicationRecord
   validates :title, :description, :price, :time, presence: true
   belongs_to :client
-  has_many :payments
+  has_many :payments, dependent: :destroy
   has_many :comments, as: :commentable
-  has_many :assignments
+  has_many :assignments, dependent: :destroy
   has_many :users, through: :assignments
 
   has_many :attachments, as: :attachable
