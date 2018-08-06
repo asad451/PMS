@@ -4,11 +4,13 @@
   <% end %>
 </li>
 
-<li>
-  <%= link_to admin_users_path do %>
-    <span class="glyphicon glyphicon-user"></span>Users
-  <% end %>
-</li>
+<% if current_user.admin? %>
+  <li>
+    <%= link_to admin_users_path do %>
+      <span class="glyphicon glyphicon-user"></span>Users
+    <% end %>
+  </li>
+<% end %>
 
 <li>
   <%= link_to admin_clients_path do %>

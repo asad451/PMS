@@ -13,7 +13,7 @@ module ApplicationHelper
   end
 
   def render_home_button
-    if user_signed_in? && current_user.admin?
+    if user_signed_in? && (current_user.admin? || current_user.manager?)
       render 'admin/dashboard/admin_navbar'
     else
       content_tag :li do
