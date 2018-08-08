@@ -24,6 +24,7 @@ gem "nested_form"
 gem 'thinking-sphinx', '~> 4.0'
 gem 'active_model_serializers', '~> 0.10.7'
 gem 'jwt'
+gem 'chartkick'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

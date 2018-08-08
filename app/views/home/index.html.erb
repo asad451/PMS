@@ -6,4 +6,15 @@
   <h3><strong>E-mail: </strong><%= current_user.email %></h3>
   <h3><strong>Role: </strong><%= current_user.role %></h3>
   <h3><strong>Contact: </strong><%= current_user.contact %></h3>
+
+  <hr>
+  <div>
+    <h1 class="title-header">Charts</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Earnings This Month</h3>
+          <%= line_chart  charts_project_payments_by_month_path, min: 100, max: 2000, xtitle: "Project", ytitle: "Earnings ($)", width: "1000px", height: "500px", adapter: 'highcharts' %>
+      </div>
+    </div>
+  </div>
 <% end %>

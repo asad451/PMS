@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :charts do
+    get "project_payments_by_month"
+  end
+
   resources :clients
   resources :time_logs
   resources :projects do
