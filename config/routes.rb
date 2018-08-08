@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
 
+  namespace :api do
+    namespace :v1 do
+      resources :projects, only: [:index, :show]
+    end
+  end
+
   resources :clients
   resources :time_logs
   resources :projects do

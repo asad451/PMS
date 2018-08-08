@@ -7,37 +7,19 @@
   </p>
 <% end %>
 
-<% if params[:search].present? %>
-  <div class="row">
-    <% @results.each do |result| %>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <div class="caption">
-            <h3><strong>Title: </strong> <%= result.title %></h3>
-            <span class="glyphicon glyphicon-file client-icon"></span>
-            <h4><strong>Client: </strong> <%= result.user_name %></h4>
-            <h5><strong>Description: </strong><%= result.description.truncate_words(4) %></h5>
-            <p><%= link_to "View Project", project_path(result.id), class: "btn btn-primary" %></p>
-          </div>
+<div class="row">
+  <% @projects.each do |project| %>
+    <div class="col-sm-3">
+      <div class="thumbnail">
+        <div class="caption">
+          <h3><strong>Title: </strong> <%= project.title %></h3>
+          <span class="glyphicon glyphicon-file client-icon"></span>
+          <h4><strong>Client: </strong> <%= project.user_name %></h4>
+          <h5><strong>Description: </strong><%= project.description.truncate_words(4) %></h5>
+          <p><%= link_to "View Project", project_path(project.id), class: "btn btn-primary" %></p>
         </div>
       </div>
-    <% end %>
-  </div>
-<% else %>
-  <div class="row">
-    <% @projects.each do |project| %>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <div class="caption">
-            <h3><strong>Title: </strong> <%= project.title %></h3>
-            <span class="glyphicon glyphicon-file client-icon"></span>
-            <h4><strong>Client: </strong> <%= project.user_name %></h4>
-            <h5><strong>Description: </strong><%= project.description.truncate_words(4) %></h5>
-            <p><%= link_to "View Project", project_path(project.id), class: "btn btn-primary" %></p>
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <%= paginate @projects %>
-<% end %>
+    </div>
+  <% end %>
+</div>
+<%= paginate @projects %>
