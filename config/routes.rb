@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   namespace :charts do
     get "project_payments_by_month"
+    get "project_timelogs_by_month"
   end
 
   resources :clients

@@ -11,10 +11,19 @@
   <div>
     <h1 class="title-header">Charts</h1>
     <div class="row">
+
       <div class="col-md-12">
         <h3>Earnings This Month</h3>
           <%= line_chart  charts_project_payments_by_month_path, min: 100, max: 2000, xtitle: "Project", ytitle: "Earnings ($)", width: "1000px", height: "500px", adapter: 'highcharts' %>
       </div>
     </div>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>TimeLogs of This Month</h3>
+          <%= column_chart  charts_project_timelogs_by_month_path, min: 0, max: 100, xtitle: "Project", ytitle: "TimeLogs (hours)", width: "1000px", height: "500px", adapter: 'highcharts' %>
+      </div>
+    </div>
+
   </div>
 <% end %>
