@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
   before_action :find_client, only: [:show]
 
   def index
-    @clients = Client.order(:name).page params[:page]
+    @clients = Client.perform_search(params)
   end
 
   def show

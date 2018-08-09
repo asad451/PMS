@@ -11,7 +11,7 @@ class Project < ApplicationRecord
 
   has_many :time_logs
   has_many :time_log_users, class_name: "User", foreign_key: "user_id", through: :time_logs
-
+  paginates_per 5
 
   def self.perform_search(params={})
     if params[:no_pagination] == true
