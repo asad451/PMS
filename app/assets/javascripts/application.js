@@ -21,6 +21,6 @@
 
 $(function() {
   setTimeout(function(){
-    $('.alert').slideUp(500);
+    $('.alert').slideUp(1500);
   }, 1000);
 });

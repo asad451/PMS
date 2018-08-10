@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180809051712) do
+ActiveRecord::Schema.define(version: 20180809112506) do
 
   create_table "assignments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "role", null: false
@@ -85,6 +85,15 @@ ActiveRecord::Schema.define(version: 20180809051712) do
     t.index ["user_id"], name: "index_time_logs_on_user_id"
   end
 
+  create_table "user_providers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "provider"
+    t.string "uid"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_providers_on_user_id"
+  end
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -118,4 +127,5 @@ ActiveRecord::Schema.define(version: 20180809051712) do
   add_foreign_key "projects", "clients"
   add_foreign_key "time_logs", "projects"
   add_foreign_key "time_logs", "users"
+  add_foreign_key "user_providers", "users"
 end
