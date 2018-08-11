@@ -18,6 +18,14 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'jquery-rails'
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'paperclip', '~> 6.0'
+gem 'kaminari'
+gem "nested_form"
+gem 'thinking-sphinx', '~> 4.0'
+gem 'active_model_serializers', '~> 0.10.7'
+gem 'jwt', '~> 1.5.2'
+gem 'chartkick'
+gem 'omniauth-facebook', '5.0.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

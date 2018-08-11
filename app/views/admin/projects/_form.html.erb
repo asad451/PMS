@@ -1,0 +1,42 @@
+<%= nested_form_for [:admin, @project], html: { multipart: true } do |f| %>
+
+  <%= render 'shared/error_msg', object: @project %>
+
+  <div class="form-group">
+    <%= f.label :client_id, "Select Client", class: "label-space" %><br />
+    <%= f.select :client_id, @clients, { include_blank: 'Select Client' }, { class: "form-control", required: true } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :title , class: "label-space" %>
+    <%= f.text_field :title, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, class: "label-space" %>
+    <%= f.text_area :description, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :time , "Estimated Time to complete the project (days)",class: "label-space" %>
+    <%= f.text_field :time, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price , "Estimated Price in USD", class: "label-space" %>
+    <%= f.text_field :price, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group browse-button">
+    <%= f.fields_for :attachments do |a| %>
+      <%= a.file_field :file %>
+      <%= a.link_to_remove "Remove this file" %>
+    <% end %>
+    <p><%= f.link_to_add "Add a file", :attachments %></p>
+  </div>
+
+  <div class="action">
+    <%= f.submit class: 'btn btn-primary action' %>
+  </div>
+
+<% end %>

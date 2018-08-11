@@ -1,52 +1,14 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-inverse">
-    <ul class="nav navbar-nav navbar-left">
-      <li><%= link_to "PMS", root_path %></li>
-      <% if user_signed_in? && current_user.role == "admin" %>
-        <li>
-          <%= link_to admin_root_path do %>
-            <span class="glyphicon glyphicon-home"></span>   Home
-          <% end %>
-        </li>
-      <% else %>
-        <li>
-          <%= link_to root_path do %>
-            <span class="glyphicon glyphicon-home"></span>   Home
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-    
-    <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav navbar-right">  
-        <% if user_signed_in? %>
-          <li>
-            <h4 class="username">-<%= current_user.username %>-&nbsp;&nbsp;</h4>
-          </li>
-          <li> 
-            <%= link_to destroy_user_session_path, method: :delete do %>
-              <span class="glyphicon glyphicon-log-out"></span>   Log Out
-            <% end %>
-          </li>
-          <li> 
-            <%= link_to edit_user_registration_path do %>
-              <span class="glyphicon glyphicon-edit"></span>   Edit Profile
-            <% end %>
-          </li>
+<nav class="navbar navbar-inverse">
 
-        <% else %>
-          <li>
-            <%= link_to new_user_session_path do %>
-              <span class="glyphicon glyphicon-log-in"></span>   Log In
-            <% end %>
-          </li>
-          <li>
-            <%= link_to new_user_registration_path do %>
-              <span class="glyphicon glyphicon-new-window"></span>   Sign Up
-            <% end %>
-          </li>
-        <% end %>  
-      </ul>
-    </div>
-  </nav>
-</div>
+  <ul class="nav navbar-nav navbar-left">
+    <li><%= link_to "PMS", root_path %></li>
+    <%= render_home_button %>
+  </ul>
+
+  <div class="collapse navbar-collapse">
+    <ul class="nav navbar-nav navbar-right">
+      <%= render_session_button %>
+    </ul>
+  </div>
+
+</nav>

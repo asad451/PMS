@@ -1,0 +1,7 @@
+<div class="container">
+  <% if current_user.admin? %>
+    <h1 class="title-header">Admin's Workspace</h1>
+  <% else %>
+    <h1 class="title-header">Manager's Workspace</h1>
+  <% end %>
+</div>

@@ -1,15 +1,87 @@
 .container {
-    width: 40%;
-    margin: 0 auto;
+  width: 40%;
+  margin: 0 auto;
 }
 
-.form-control{
+.form-control {
   width: 70%;
   margin: 0 auto
 }
-.label-space{
+
+.label-space {
   margin-left: 15%;
 }
-.btn-space{
+
+.btn-space {
   margin-left: 39%;
+}
+
+.title-header {
+  text-align: center;
+}
+
+.add-client-btn {
+  float: right;
+  margin-right: 50px;
+}
+
+.thumbnail {
+  border: 1px solid black;
+}
+
+.client-icon {
+  font-size: 75px;
+  float: right;
+}
+
+.action {
+  text-align: center;
+}
+
+.profile-pic {
+  font-size: 75px;
+  border-radius: 50%;
+  border: 1px solid black;
+  float: right;
+}
+
+.browse-button {
+  margin-left: 15%;
+}
+
+.error-body {
+  margine-left: 40%;
+}
+
+#wrapper {
+  padding: 20px;
+  display: flex;
+  width: 100%;
+}
+
+#project-section {
+  width: 45%;
+  float: left;
+}
+
+#payment-section {
+  width: 40%;
+  margin-left: 20%;
+  margin-top: 4%;
+}
+
+#comment-body {
+  width: 35%;
+  margin-bottom: 200px;
+}
+
+#comment-user {
+  color: #a569bd;
+  font-variant: small-caps;
+  font-size: 1.4em;
+}
+
+#assignment-div .container {
+  margin-left: 1.5%;
+  margin: 2% 0 5% 1.5%;
 }

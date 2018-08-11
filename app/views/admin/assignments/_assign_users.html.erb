@@ -1,0 +1,44 @@
+<div id="assignment-div">
+  <div class="container well">
+    <h3 class="title-header">Asssigned Users</h3>
+
+    <%= link_to new_admin_project_assignment_path(@project), class: "btn btn-primary assign-btn" do %>
+      <span class="glyphicon glyphicon-plus"></span>Assign User
+    <% end %>
+
+    <table class="table table-hover">
+
+      <thead>
+        <tr>
+          <th class="col-xs-2">User</th>
+          <th class="col-xs-2">Role</th>
+          <th class="col-xs-1">Edit</th>
+          <th class="col-xs-1">Delete</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @project.assignments.each do |assignment| %>
+          <tr>
+            <td><%= assignment.user.username %></td>
+            <td><%= assignment.role %></td>
+
+            <td>
+              <%= link_to edit_admin_assignment_path(assignment) do %>
+                <span class="glyphicon glyphicon-edit"></span>
+              <% end %>
+            </td>
+
+            <td>
+              <%= link_to admin_project_assignment_path(@project, assignment), method: :delete, data: { confirm: "Are you sure ?" } do %>
+                <span class="glyphicon glyphicon-remove"></span>
+              <% end %>
+            </td>
+
+          </tr>
+        <% end %>
+      </tbody>
+
+    </table>
+  </div>
+</div>

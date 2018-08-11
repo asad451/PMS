@@ -1,0 +1,14 @@
+<%= form_for [:admin, @project, @payment] do |f| %>
+
+  <%= render 'shared/error_msg', object: @payment %>
+
+  <div class="form-group">
+    <%= f.label :amount, class: "label-space" %>
+    <%= f.text_field :amount, class: "form-control" %>
+  </div>
+
+  <div class="action">
+    <%= f.submit class: "btn btn-primary action" %>
+  </div>
+
+<% end %>

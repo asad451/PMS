@@ -1,0 +1,6 @@
+<h2>Comments</h2>
+<% comments.each do |comment| %>
+  <%= render 'comments/com', comment: comment, commentable: commentable %>
+<% end %>
+
+<div id="edit-comment-modal-window" class="modal fade in" role="dialog" aria-hidden="true", tabindex="-1"></div>

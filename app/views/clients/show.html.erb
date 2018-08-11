@@ -1,0 +1,15 @@
+<h1 class="title-header"><strong>Client: </strong><%= @client.name %></h3>
+<div id="wrapper">
+  <div id="project-section">
+    <h3><strong>Country: </strong><%= @client.country %></h3>
+    <h3><strong>E-mail: </strong><%= @client.email %></h3>
+    <h3><strong>Projects: </strong></h3>
+    <ol>
+      <% @client.projects.each do |project| %>
+        <% if project %>
+          <li><h3><%= project.title %></h3></li>
+        <% end %>
+      <% end %>
+    </ol>
+  </div>
+</div>

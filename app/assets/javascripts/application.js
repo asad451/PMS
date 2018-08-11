@@ -12,6 +12,15 @@
 //
 //= require rails-ujs
 //= require jquery
+//= require jquery_nested_form
 //= require bootstrap-sprockets
+//= require highcharts
+//= require chartkick
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  setTimeout(function(){
+    $('.alert').slideUp(1500);
+  }, 1000);
+});

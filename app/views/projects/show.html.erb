@@ -1,0 +1,12 @@
+<h1 class="title-header"><strong>Project Title: </strong> <%= @project.title %></h3>
+<div id="wrapper">
+  <div id="project-section">
+    <h3><strong>Client: </strong> <%= @project.user_name %></h3>
+    <h3><strong>Estimated Time: </strong> <%= @project.time %> Days</h3>
+    <h3><strong>Estimated Price: </strong>$ <%= @project.price %> </h3>
+    <p><strong>Description: </strong><%= @project.description %></p>
+    <h4><strong>Total Hours Spent By You: </strong><%= @total %> hours</h4>
+  </div>
+</div>
+<%= render partial: "comments/comments", locals: { commentable: @project, comments: @comments } %>
+<%= render partial: "comments/form", locals: { commentable: @project } %>

@@ -1,5 +1,63 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-.username{
-  color:    #85c1e9;
+
+.username {
+  color: #8494ec;
+  margin-top: 16px;
+  font-variant: small-caps;
+  padding-right: 25px;
+}
+
+.margin-btm-5 {
+  margin-bottom: 30px;
+}
+
+.glyphicon {
+  padding-right: 7px;
+}
+
+.navbar {
+  border-radius: 0px;
+}
+
+table {
+  table-layout: fixed;
+}
+
+.alert {
+  display:inline-block;
+  margin-left: 200px;
+}
+
+.add-payment-button {
+  float: right;
+  margin-bottom: 45px;
+}
+
+.comment-text {
+  width: 100%;
+  height: 150px;
+}
+
+.assign-btn {
+  margin-bottom: 30px;
+}
+
+.time-btn {
+  float: right;
+  margin-bottom: 10px;
+}
+
+.contain {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.home-profile-pic {
+  padding: 1%;
+  border-radius: 4%;
+  border: 2px solid gray;
+  width: 10%;
+  height: 10%;
 }

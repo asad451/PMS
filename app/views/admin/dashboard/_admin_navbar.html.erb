@@ -1,0 +1,25 @@
+<li>
+  <%= link_to admin_root_path do %>
+    <span class="glyphicon glyphicon-home"></span>Home
+  <% end %>
+</li>
+
+<% if current_user.admin? %>
+  <li>
+    <%= link_to admin_users_path do %>
+      <span class="glyphicon glyphicon-user"></span>Users
+    <% end %>
+  </li>
+<% end %>
+
+<li>
+  <%= link_to admin_clients_path do %>
+    <span class="glyphicon glyphicon-user"></span>Clients
+  <% end %>
+</li>
+
+<li>
+  <%= link_to admin_projects_path do %>
+    <span class="glyphicon glyphicon-file"></span>Projects
+  <% end %>
+</li>
